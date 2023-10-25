@@ -1,0 +1,10 @@
+#!/bin/bash
+proteina=4DQY.pdb
+for arch in $proteina
+do
+  prot=$(echo $arch | sed 's/.pdb//g' )
+  gmx grompp -f nvt.mdp -c $prot-min.gro -p $prot.top -o $prot-nvt.tpr -po $prot-nvt.mdp
+  gmx mdrun -nice 0 -v -s -ddorder pp_pme -deffnm $prot-nvt -nt 32
+done
+#rm \#*
+#rm step*

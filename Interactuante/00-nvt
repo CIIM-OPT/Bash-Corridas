@@ -1,0 +1,30 @@
+#!/bin/bash
+proteina=2E1Q.pdb
+for arch in $proteina
+do
+  prot=$(echo $arch | sed 's/.pdb//g' )
+  gmx grompp -f nvt.mdp -c $prot-min.gro -p $prot.top -o $prot-nvt.tpr -po $prot-nvt.mdp
+  gmx mdrun -nice 0 -v -s -ddorder pp_pme -deffnm $prot-nvt -nt 32
+done
+rm \#*
+patr="step*"
+if ls ${patr} 1> /dev/null 2>&1; then
+  for archivo in ${patr};
+  do
+    rm "$archivo"
+        echo "Eliminando $archivo"
+  done
+else
+  echo "No se encontraron archivos que coincidan con el patrón."
+fi
+patr="dd_dump*"
+if ls ${patr} 1> /dev/null 2>&1; then
+  for archivo in ${patr};
+  do
+      rm "$archivo"
+      echo "Eliminando $archivo"
+  done
+else
+  echo "No se encontraron archivos que coincidan con el patrón."
+fi
+
