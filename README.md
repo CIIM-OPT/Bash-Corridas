@@ -38,7 +38,7 @@ Asegúrate de tener instalado en tu sistema:
 
 ## Configuración de Parámetros
 
-Dentro del directorio `parameters/` encontrarás varios archivos de configuración (`config_file.txt`, `input_parameters.dat`, etc.). Abre estos archivos con un editor de texto para personalizar los parámetros de la simulación. Asegúrate de seguir la documentación del software de simulación para entender el significado de cada parámetro.
+Dentro de cada directorio encontrarás varios archivos de configuración (`Archivo.mdp`, etc.). Abre estos archivos con un editor de texto para personalizar los parámetros de la simulación. Asegúrate de seguir la documentación del software de simulación para entender el significado de cada parámetro.
 
 <!--## Contribuciones
 
